@@ -132,12 +132,12 @@ class Story_bones:
         """
         Generate random short-story opening line.
         """
-        first_line = [(h, i, j, k, m)
+        """first_line = [(h, i, j, k, m)
                       for h in Story_bones.setting
                       for i in Story_bones.character
                       for j in Story_bones.dice_6
                       for k in Story_bones.verb
-                      for m in Story_bones.dice_3]
+                      for m in Story_bones.dice_3]"""
         opening = (f"{random.choice(Story_bones.setting)}"
                    f" there lived "
                    f"{random.choice(Story_bones.dice_6)}\n"
@@ -150,40 +150,33 @@ class Story_bones:
         """
         Generate random first option path to continue short-story.
         """
-        path_1 = [(a, b) for a in Story_bones.animal
-                  for b in Story_bones.dice_2]
-        return (
+        path_1 = (
                 f"1: ...{random.choice(Story_bones.animal)}"
                 f" named {users_name}, carrying"
                 f" {random.choice(Story_bones.dice_2)},...\n")
+        return path_1
 
     def possibility_2(self, users_name):
         """
         Generate random second option path to continue short-story.
         """
-        path_2 = [(day, animal, dice_2, dice_3, dice_1)
-                  for day in Story_bones.time_of_day
-                  for animal in Story_bones.animal
-                  for dice_2 in Story_bones.dice_2
-                  for dice_3 in Story_bones.dice_3
-                  for dice_1 in Story_bones.dice_1]
-        return (f"2: ...I remembered that"
+        path_2 = (f"2: ...I remembered that"
                 f" {random.choice(Story_bones.time_of_day)}"
                 f" {users_name}'s pet,\n"
                 f"     {random.choice(Story_bones.animal)}"
                 f" named Puddles, spotted"
                 f" {random.choice(Story_bones.dice_2)}"
                 f" and...\n")
+        return path_2
 
     def possibility_3(self):
         """
         Generate random third option path to continue short-story.
         """
-        path_3 = [(animal, quotation) for animal in Story_bones.animal
-                  for quotation in Story_bones.quote]
-        return (f"3: ...suddenly,"
+        path_3 = (f"3: ...suddenly,"
                 f" {random.choice(Story_bones.animal)} said,"
                 f" {random.choice(Story_bones.quote)}...\n")
+        return path_3
 
     def options(self):
         """
@@ -193,10 +186,9 @@ class Story_bones:
         while True:
             user_choice = input("Choose 1, 2 or 3 to continue the story!\n")
             if user_choice == '1':
-                for i in Story_bones.dice_5:
-                    for i in Story_bones.dice_6:
-                        story = (
-                            f"\nOption 1, continued:\n\n...began to tell"
+                # for i in Story_bones.dice_5:
+                    # for i in Story_bones.dice_6:
+                story = (f"\nOption 1, continued:\n\n...began to tell"
                             f" a story.\n{random.choice(Story_bones.dice_5)}"
                             f" saw\na very large crowd of people"
                             f" gathered outside the gates\nof the local"
@@ -210,10 +202,9 @@ class Story_bones:
                             f"It had all been a dream!!\n")
                 break
             elif user_choice == '2':
-                for i in Story_bones.quote:
-                    for i in Story_bones.dice_6:
-                        story = (
-                            f"\nOption 2, continued:\n\n..."
+                # for i in Story_bones.quote:
+                    # for i in Story_bones.dice_6:
+                story = (f"\nOption 2, continued:\n\n..."
                             f"{random.choice(Story_bones.dice_5)}"
                             f" said:\n'I'm so glad to see you, please"
                             f" stay for tea.'  Afterwards,"
@@ -228,12 +219,11 @@ class Story_bones:
                             f" what an adventure that was going to be!\n ")
                 break
             elif user_choice == '3':
-                if user_choice == '3':
-                    for i in Story_bones.dice_5:
-                        for i in Story_bones.dice_4:
-                            for i in Story_bones.animal:
-                                story = (
-                                    f"\nOption 3, continued:..."
+                # if user_choice == '3':
+                # for i in Story_bones.dice_5:
+                 #       for i in Story_bones.dice_4:
+                  #          for i in Story_bones.animal:
+                story = (f"\nOption 3, continued:..."
                                     f"{random.choice(Story_bones.dice_5)}"
                                     f"\nwhose "
                                     f"{random.choice(Story_bones.dice_4)}"
@@ -305,10 +295,11 @@ def user_options(user_choice):
     Validate that only user input of '1', '2' or '3' will be accepted.
     """
     try:
-        if user_choice != '1':
-            if user_choice != '2':
-                if user_choice != '3':
-                    raise ValueError()
+        [(result ValueError()) if user_choice != '1' if user_choice != '2' if user_choice != '3']
+        #if user_choice != '1':
+         #   if user_choice != '2':
+          #      if user_choice != '3':
+           #         raise ValueError()
     except ValueError as e:
         print(f"ValueError: Choose 1, 2, or 3 to continue the story.\n")
         return False
